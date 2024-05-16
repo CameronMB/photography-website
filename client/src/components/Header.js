@@ -1,20 +1,44 @@
 // src/components/Header.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../logo.svg';
 
 const Header = () => {
   return (
-    <header className="bg-gray-900 text-white shadow-md py-4">
-      <div className="container mx-auto flex flex-wrap justify-between items-center">
-        <h1 className="text-3xl font-bold text-gray-100">Cassidy Sullivan Photography</h1>
-        <nav className="mt-2 md:mt-0 space-x-2 sm:space-x-4 flex flex-wrap justify-center">
-          <Link to="/" className="bg-blue-500 text-white py-2 px-3 sm:px-4 rounded hover:bg-blue-700 transition duration-300">Home</Link>
-          <Link to="/about" className="bg-blue-500 text-white py-2 px-3 sm:px-4 rounded hover:bg-blue-700 transition duration-300">About</Link>
-          <Link to="/contact" className="bg-blue-500 text-white py-2 px-3 sm:px-4 rounded hover:bg-blue-700 transition duration-300">Contact</Link>
-          <Link to="/portfolio" className="bg-blue-500 text-white py-2 px-3 sm:px-4 rounded hover:bg-blue-700 transition duration-300">Portfolio</Link>
-          <Link to="/booking" className="bg-blue-500 text-white py-2 px-3 sm:px-4 rounded hover:bg-blue-700 transition duration-300">Book Now</Link>
-        </nav>
-      </div>
+    <header className="bg-dark-teal text-champagne py-6 flex justify-center items-center">
+      <Link to="/" className="flex items-center mr-8">
+        <img src={logo} alt="Cassidy Sullivan Photography Logo" className="w-16 h-16 mr-4" />
+        <h1 className="text-2xl font-bold">Cassidy Sullivan Photography</h1>
+      </Link>
+      <nav>
+        <ul className="flex space-x-4">
+          <li>
+            <Link to="/" className="text-lg bg-teal text-champagne py-2 px-4 rounded hover:bg-dark-teal hover:text-champagne transition duration-300">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="text-lg bg-teal text-champagne py-2 px-4 rounded hover:bg-dark-teal hover:text-champagne transition duration-300">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className="text-lg bg-teal text-champagne py-2 px-4 rounded hover:bg-dark-teal hover:text-champagne transition duration-300">
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link to="/portfolio" className="text-lg bg-teal text-champagne py-2 px-4 rounded hover:bg-dark-teal hover:text-champagne transition duration-300">
+              Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link to="/booking" className="text-lg bg-teal text-champagne py-2 px-4 rounded hover:bg-dark-teal hover:text-champagne transition duration-300">
+              Book Now
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };

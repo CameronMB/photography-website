@@ -53,7 +53,7 @@ const ContactPage = () => {
           </div>
         </form>
         <p className="text-lg">
-          Email: <a href="mailto:your-email@example.com" className="text-blue-500 hover:underline">your-email@example.com</a>
+          Email: <a href="mailto:sullic97@gmail.com" className="text-blue-500 hover:underline">sullic97@gmail.com</a>
         </p>
       </div>
     </div>
