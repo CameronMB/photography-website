@@ -2,20 +2,25 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/contact', formData);
-      alert('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
+      const response = await axios.post('http://localhost:5000/api/contact', {
+        name,
+        email,
+        message,
+      });
+      alert('Message sent successfully');
+      setName('');
+      setEmail('');
+      setMessage('');
     } catch (error) {
-      alert('Failed to send message.');
+      console.error('There was an error sending the message!', error);
+      alert('Error sending message');
     }
   };
 
@@ -36,8 +41,8 @@ const ContactPage = () => {
               id="name"
               type="text"
               placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -49,8 +54,8 @@ const ContactPage = () => {
               id="email"
               type="email"
               placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -62,13 +67,13 @@ const ContactPage = () => {
               id="message"
               placeholder="Your Message"
               rows="5"
-              value={formData.message}
-              onChange={handleChange}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-teal hover:bg-dark-teal text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Send Message
@@ -76,7 +81,7 @@ const ContactPage = () => {
           </div>
         </form>
         <p className="text-lg">
-          Email: <a href="mailto:sullic97@gmail.com" className="text-blue-500 hover:underline">sullic97@gmail.com</a>
+          Email: <a href="mailto:sullic97@gmail.com" className="text-teal hover:underline">sullic97@gmail.com</a>
         </p>
       </div>
     </div>

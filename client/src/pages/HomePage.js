@@ -1,4 +1,3 @@
-// src/pages/HomePage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,14 +5,15 @@ const HomePage = () => {
   return (
     <div className="container mx-auto mt-8 text-center px-4">
       <div className="hero bg-teal text-champagne py-16 px-8 mb-8">
-        <h1 className="text-3xl mb-6">
+        <h1 className="text-3xl sm:text-5xl font-bold mb-4">Cassidy Sullivan Photography</h1>
+        <p className="text-lg mb-6">
           Capturing moments from today, creating memories for a lifetime.
-        </h1>
-        <div className="flex justify-center space-x-2 sm:space-x-4 mt-8"> {/* Added margin-top here */}
-          <Link to="/portfolio" className="bg-champagne text-dark-teal py-2 px-4 sm:px-6 rounded hover:bg-light-teal hover:text-champagne transition duration-300">
+        </p>
+        <div className="flex justify-center space-x-2 sm:space-x-4">
+          <Link to="/portfolio" className="bg-dark-teal text-champagne py-2 px-3 sm:px-4 rounded hover:bg-teal hover:text-dark-teal transition duration-300">
             View Portfolio
           </Link>
-          <Link to="/booking" className="bg-champagne text-dark-teal py-2 px-4 sm:px-6 rounded hover:bg-light-teal hover:text-champagne transition duration-300">
+          <Link to="/booking" className="bg-champagne text-dark-teal py-2 px-3 sm:px-4 rounded hover:bg-dark-teal hover:text-champagne transition duration-300">
             Book Now
           </Link>
         </div>

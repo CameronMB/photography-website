@@ -2,20 +2,28 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const BookingPage = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', preferredDate: '', message: '' });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [date, setDate] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/book', formData);
-      alert('Booking request sent successfully!');
-      setFormData({ name: '', email: '', preferredDate: '', message: '' });
+      const response = await axios.post('http://localhost:5000/api/booking', {
+        name,
+        email,
+        date,
+        message,
+      });
+      alert('Booking request sent successfully');
+      setName('');
+      setEmail('');
+      setDate('');
+      setMessage('');
     } catch (error) {
-      alert('Failed to send booking request.');
+      console.error('There was an error sending the booking request!', error);
+      alert('Error sending booking request');
     }
   };
 
@@ -33,8 +41,8 @@ const BookingPage = () => {
               id="name"
               type="text"
               placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -46,21 +54,21 @@ const BookingPage = () => {
               id="email"
               type="email"
               placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="preferredDate">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="date">
               Preferred Date
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="preferredDate"
-              type="text"
-              placeholder="mm / dd / yyyy"
-              value={formData.preferredDate}
-              onChange={handleChange}
+              id="date"
+              type="date"
+              placeholder="Preferred Date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -72,24 +80,21 @@ const BookingPage = () => {
               id="message"
               placeholder="Your Message"
               rows="5"
-              value={formData.message}
-              onChange={handleChange}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-teal hover:bg-dark-teal text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Submit
             </button>
           </div>
         </form>
-        <p className="text-lg mb-4">
-          <strong>Working Hours:</strong><br />
-          Monday - Friday: 9:00 AM - 6:00 PM<br />
-          Saturday: 10:00 AM - 4:00 PM<br />
-          Sunday: Closed
+        <p className="text-lg">
+          Working hours: Monday to Friday, 9:00 AM - 5:00 PM
         </p>
       </div>
     </div>
