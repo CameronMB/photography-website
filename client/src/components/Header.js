@@ -5,40 +5,33 @@ import logo from '../logo.svg';
 
 const Header = () => {
   return (
-    <header className="bg-dark-teal text-champagne py-6 flex justify-center items-center">
-      <Link to="/" className="flex items-center mr-8">
-        <img src={logo} alt="Cassidy Sullivan Photography Logo" className="w-16 h-16 mr-4" />
-        <h1 className="text-2xl font-bold">Cassidy Sullivan Photography</h1>
-      </Link>
-      <nav>
-        <ul className="flex space-x-4">
-          <li>
-            <Link to="/" className="text-lg bg-teal text-champagne py-2 px-4 rounded hover:bg-dark-teal hover:text-champagne transition duration-300">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="text-lg bg-teal text-champagne py-2 px-4 rounded hover:bg-dark-teal hover:text-champagne transition duration-300">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="text-lg bg-teal text-champagne py-2 px-4 rounded hover:bg-dark-teal hover:text-champagne transition duration-300">
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link to="/portfolio" className="text-lg bg-teal text-champagne py-2 px-4 rounded hover:bg-dark-teal hover:text-champagne transition duration-300">
-              Portfolio
-            </Link>
-          </li>
-          <li>
-            <Link to="/booking" className="text-lg bg-teal text-champagne py-2 px-4 rounded hover:bg-dark-teal hover:text-champagne transition duration-300">
-              Book Now
-            </Link>
-          </li>
-        </ul>
-      </nav>
+    <header className="bg-white text-primary py-6">
+      <div className="container mx-auto flex flex-col items-center">
+        <Link to="/" className="flex items-center mb-6">
+          <img src={logo} alt="Cassidy Sullivan Photography Logo" className="w-24 h-24 mr-3" />
+          <h1 className="text-3xl font-serif font-bold text-primary">Cassidy Sullivan Photography</h1>
+        </Link>
+        <nav className="mb-4">
+          <ul className="flex flex-wrap justify-center space-x-4">
+            {['Home', 'Investment', 'Portfolio', 'Client Galleries', 'FAQs', 'Calendar'].map((item) => (
+              <li key={item} className="list-none">
+                <Link
+                  to={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '')}`}
+                  className="text-base font-sans text-primary py-2 px-3 hover:text-secondary transition duration-300"
+                >
+                  {item}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <Link
+          to="/booking"
+          className="bg-secondary text-primary font-bold py-2 px-4 rounded transition duration-300 hover:bg-white hover:text-black"
+        >
+          Book a Session
+        </Link>
+      </div>
     </header>
   );
 };

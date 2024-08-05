@@ -26,14 +26,14 @@ const ContactPage = () => {
 
   return (
     <div className="container mx-auto mt-8 text-center">
-      <h1 className="text-4xl font-bold mb-4">Contact Me</h1>
+      <h1 className="text-4xl font-bold mb-4 text-primary">Contact Me</h1>
       <div className="text-left max-w-2xl mx-auto">
-        <p className="text-lg mb-4">
+        <p className="text-lg mb-4 text-primary">
           If you would like to book a photoshoot or have any questions, feel free to reach out to me. You can contact me through the form below or via email.
         </p>
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+        <form className="bg-neutral-dark text-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+            <label className="block text-white text-sm font-bold mb-2" htmlFor="name">
               Name
             </label>
             <input
@@ -46,7 +46,7 @@ const ContactPage = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+            <label className="block text-white text-sm font-bold mb-2" htmlFor="email">
               Email
             </label>
             <input
@@ -59,7 +59,7 @@ const ContactPage = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
+            <label className="block text-white text-sm font-bold mb-2" htmlFor="message">
               Message
             </label>
             <textarea
@@ -73,15 +73,15 @@ const ContactPage = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-teal hover:bg-dark-teal text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-secondary hover:bg-white text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Send Message
             </button>
           </div>
         </form>
-        <p className="text-lg">
-          Email: <a href="mailto:sullic97@gmail.com" className="text-teal hover:underline">sullic97@gmail.com</a>
+        <p className="text-lg text-primary">
+          Email: <a href="mailto:sullic97@gmail.com" className="text-black hover:underline">sullic97@gmail.com</a>
         </p>
       </div>
     </div>

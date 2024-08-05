@@ -29,11 +29,11 @@ const BookingPage = () => {
 
   return (
     <div className="container mx-auto mt-8 text-center">
-      <h1 className="text-4xl font-bold mb-4">Book a Consultation</h1>
+      <h1 className="text-4xl font-bold mb-4 text-primary">Book a Consultation</h1>
       <div className="text-left max-w-2xl mx-auto">
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+        <form className="bg-neutral-dark text-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+            <label className="block text-white text-sm font-bold mb-2" htmlFor="name">
               Name
             </label>
             <input
@@ -46,7 +46,7 @@ const BookingPage = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+            <label className="block text-white text-sm font-bold mb-2" htmlFor="email">
               Email
             </label>
             <input
@@ -59,7 +59,7 @@ const BookingPage = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="date">
+            <label className="block text-white text-sm font-bold mb-2" htmlFor="date">
               Preferred Date
             </label>
             <input
@@ -72,7 +72,7 @@ const BookingPage = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
+            <label className="block text-white text-sm font-bold mb-2" htmlFor="message">
               Message
             </label>
             <textarea
@@ -86,14 +86,14 @@ const BookingPage = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-teal hover:bg-dark-teal text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-secondary hover:bg-white text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Submit
             </button>
           </div>
         </form>
-        <p className="text-lg">
+        <p className="text-lg text-primary">
           Working hours: Monday to Friday, 9:00 AM - 5:00 PM
         </p>
       </div>
